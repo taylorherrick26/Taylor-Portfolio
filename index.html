@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taylor Herrick — Creative Portfolio</title>
+<meta name="description" content="Taylor Herrick's digital marketing portfolio — internships, projects, and creative work in content, strategy, and social media.">
+
+<!-- Open Graph / LinkedIn, Facebook, iMessage -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taylor Herrick — Creative Portfolio">
+<meta property="og:description" content="Digital marketing portfolio featuring internship work, campaigns, and creative projects.">
+<meta property="og:image" content="https://taylorherrick26.github.io/Taylor-Portfolio/assets/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://taylorherrick26.github.io/Taylor-Portfolio/">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Taylor Herrick — Creative Portfolio">
+<meta name="twitter:description" content="Digital marketing portfolio featuring internship work, campaigns, and creative projects.">
+<meta name="twitter:image" content="https://taylorherrick26.github.io/Taylor-Portfolio/assets/og-preview.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F5EFE1;
+    --cream-2:#EFE7D3;
+    --paper:#FAF6EB;
+    --espresso:#241611;
+    --espresso-2:#2E1D16;
+    --taupe:#6E6154;
+    --taupe-light:#8B7E6E;
+    --gold:#D9A441;
+    --gold-deep:#B9822B;
+    --line:rgba(36,22,17,0.14);
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--espresso);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--gold); color:var(--espresso);}
+
+  /* film grain texture */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    z-index:999;
+    opacity:0.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,h2,h3{margin:0; font-family:'Anton',sans-serif; font-weight:400; letter-spacing:0.5px; text-transform:uppercase; line-height:0.92;}
+  p{margin:0; line-height:1.65;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 48px;}
+  .script{font-family:'Yellowtail',cursive; text-transform:none; font-weight:400; letter-spacing:0;}
+  .eyebrow{
+    font-family:'Inter',sans-serif; font-weight:700; font-size:12.5px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--taupe);
+  }
+  .meta-row{
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:'Inter',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--espresso); padding:26px 0;
+  }
+  .meta-row span:nth-child(2){color:var(--taupe);}
+
+  /* ---------- nav dots ---------- */
+  .dotnav{
+    position:fixed; right:28px; top:50%; transform:translateY(-50%);
+    z-index:400; display:flex; flex-direction:column; gap:16px;
+  }
+  .dotnav a{
+    width:10px; height:10px; border-radius:50%; border:1.5px solid var(--taupe);
+    display:block; position:relative; transition:all .25s ease;
+  }
+  .dotnav a.active{background:var(--gold); border-color:var(--gold); transform:scale(1.3);}
+  .dotnav a span{
+    position:absolute; right:22px; top:50%; transform:translateY(-50%);
+    white-space:nowrap; font-size:11px; font-weight:700; letter-spacing:0.1em;
+    text-transform:uppercase; background:var(--espresso); color:var(--paper);
+    padding:5px 10px; border-radius:3px; opacity:0; pointer-events:none; transition:opacity .2s ease;
+  }
+  .dotnav a:hover span{opacity:1;}
+  @media (max-width:900px){ .dotnav{display:none;} }
+
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{position:relative; padding-bottom:60px; border-bottom:1px solid var(--line);}
+  .hero .wrap{padding-top:8px;}
+  .hero-stack{position:relative; margin-top:10px;}
+  .hero-title{
+    font-size:clamp(70px,15vw,190px);
+    color:var(--espresso);
+    text-align:center;
+    position:relative;
+  }
+  .hero-script{
+    position:absolute; left:50%; top:52%; transform:translate(-50%,-50%) rotate(-3deg);
+    font-size:clamp(46px,9vw,110px);
+    color:transparent;
+    -webkit-text-stroke:1.6px var(--taupe-light);
+    white-space:nowrap;
+    z-index:2;
+  }
+  .hero-bottom{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:40px;
+    margin-top:18px;
+  }
+  .hero-photo{
+    width:190px; height:230px; flex:none; overflow:hidden; position:relative;
+    border:2px solid var(--espresso);
+  }
+  .hero-photo img{width:100%; height:100%; object-fit:cover; display:block;}
+  .hero-photo .corner{
+    position:absolute; right:8px; bottom:8px; width:30px; height:30px; border-radius:50%;
+    background:var(--paper); display:flex; align-items:center; justify-content:center;
+    font-size:15px; color:var(--espresso);
+  }
+  .hero-caption{
+    max-width:360px; text-align:right; padding-bottom:14px;
+  }
+  .hero-caption p{font-size:15.5px; color:var(--taupe); font-style:italic;}
+  .scroll-cue{
+    display:flex; align-items:center; gap:10px; justify-content:center; margin-top:46px;
+    font-size:11.5px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--taupe-light);
+  }
+  .scroll-cue .line{width:34px; height:1px; background:var(--taupe-light); animation:pulse 2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:.3;}50%{opacity:1;}}
+
+  /* ================= SECTION GENERIC ================= */
+  section{position:relative; padding:110px 0;}
+  .section-alt{background:var(--cream-2);}
+  .tag-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:12.5px; letter-spacing:0.14em;
+    text-transform:uppercase; color:var(--espresso);
+    border:1.5px solid var(--espresso); padding:7px 16px; border-radius:100px;
+    margin-bottom:26px;
+  }
+  .big-head{font-size:clamp(48px,8vw,120px); display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
+  .big-head svg{width:0.55em; height:0.55em; flex:none;}
+  .section-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:64px; margin-top:56px; align-items:start;}
+  @media (max-width:880px){ .section-grid{grid-template-columns:1fr;} .wrap{padding:0 24px;} .hero-bottom{flex-direction:column; align-items:flex-start; gap:24px;} .hero-caption{text-align:left;} }
+
+  .body-copy p + p{margin-top:18px;}
+  .body-copy{font-size:16.5px; color:#3a2c22;}
+
+  .frame-photo{border:2px solid var(--espresso); overflow:hidden; position:relative;}
+  .frame-photo img{width:100%; display:block; object-fit:cover;}
+  .frame-tab{
+    position:absolute; top:0; left:0; background:var(--espresso); color:var(--paper);
+    font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+    padding:8px 14px;
+  }
+
+  /* ============ INTRODUCTION ============ */
+  #intro .section-grid{grid-template-columns:1fr 0.85fr;}
+  #intro .frame-photo{aspect-ratio:2/3; align-self:stretch;}
+  #intro .frame-photo img{height:100%;}
+
+  /* ============ ABOUT ============ */
+  #about{background:var(--cream-2);}
+  #about .section-grid{grid-template-columns:0.8fr 1.2fr;}
+  #about .frame-photo{aspect-ratio:0.8/1;}
+  #about .name-line{font-size:clamp(38px,6vw,72px); margin-top:10px;}
+  #about .stat-row{display:flex; gap:34px; margin-top:34px; flex-wrap:wrap;}
+  #about .stat{border-top:2px solid var(--espresso); padding-top:10px; min-width:120px;}
+  #about .stat b{display:block; font-family:'Anton',sans-serif; font-size:30px;}
+  #about .stat span{font-size:12px; color:var(--taupe); text-transform:uppercase; letter-spacing:0.08em;}
+
+  /* ============ EDUCATION (dark) ============ */
+  #education{background:var(--espresso); color:var(--paper);}
+  #education .eyebrow{color:var(--gold);}
+  #education .tag-badge{border-color:var(--gold); color:var(--gold);}
+  #education .big-head{color:var(--paper);}
+  #education .body-copy{color:#DCD2C4;}
+  #education .frame-photo{border-color:var(--gold);}
+  #education .section-grid{grid-template-columns:0.75fr 1.25fr; align-items:center;}
+  #education .honors{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:30px;}
+  #education .honor{border:1px solid rgba(217,164,65,0.4); padding:16px 18px; border-radius:6px;}
+  #education .honor b{display:block; font-size:13.5px; letter-spacing:0.03em; margin-bottom:4px; color:var(--gold);}
+  #education .honor span{font-size:13.5px; color:#C9BEAF;}
+
+  /* ============ SKILLS ============ */
+  .badge-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:50px;}
+  @media (max-width:700px){.badge-grid{grid-template-columns:repeat(2,1fr);}}
+  .skill-badge{
+    background:var(--paper); border:1.5px solid var(--line); border-radius:10px;
+    padding:22px 18px; display:flex; flex-direction:column; gap:10px; min-height:96px; justify-content:center;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .skill-badge:hover{transform:translateY(-4px); border-color:var(--gold);}
+  .skill-badge .mark{width:30px; height:30px; border-radius:7px; background:var(--espresso); color:var(--paper); display:flex; align-items:center; justify-content:center; font-family:'Anton',sans-serif; font-size:15px;}
+  .skill-badge .name{font-weight:700; font-size:14.5px;}
+  .cert-list{margin-top:56px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media (max-width:800px){.cert-list{grid-template-columns:1fr;}}
+  .cert-item{display:flex; gap:14px; align-items:flex-start; padding:20px; background:var(--paper); border-radius:10px; border:1.5px solid var(--line);}
+  .cert-item svg{flex:none; width:22px; height:22px; margin-top:2px; color:var(--gold-deep);}
+  .cert-item span{font-size:14.5px; font-weight:600; line-height:1.4;}
+
+  /* ============ WORK EXPERIENCE ============ */
+  #work{background:var(--cream-2);}
+  .job{
+    border-top:1px solid var(--line); padding:46px 0; display:grid;
+    grid-template-columns:220px 1fr; gap:44px;
+  }
+  .job:last-child{border-bottom:1px solid var(--line);}
+  @media (max-width:800px){.job{grid-template-columns:1fr; gap:16px;}}
+  .job .when{font-family:'Anton',sans-serif; font-size:22px; color:var(--gold-deep);}
+  .job .org{font-size:13.5px; color:var(--taupe); text-transform:uppercase; letter-spacing:0.08em; margin-top:6px; font-weight:700;}
+  .job h3{font-size:clamp(24px,3.4vw,34px); margin-bottom:16px;}
+  .job ul{margin:0; padding-left:20px; color:#3a2c22; font-size:15.5px;}
+  .job li + li{margin-top:10px;}
+  .job li::marker{color:var(--gold-deep);}
+
+  /* ============ PROJECT PORTFOLIO ============ */
+  .proj-card{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; margin-top:64px;
+    border:2px solid var(--espresso); border-radius:2px; overflow:hidden;
+  }
+  .proj-card:first-of-type{margin-top:56px;}
+  .proj-card.flip{grid-template-columns:1fr 1fr;}
+  .proj-card.flip .proj-media{order:2;}
+  .proj-media{background:var(--espresso); position:relative; min-height:280px;}
+  .proj-media img{width:100%; height:100%; object-fit:cover; display:block; opacity:0.94;}
+  .proj-media.split{display:grid; grid-template-rows:1fr 1fr;}
+  .proj-media.split img{height:100%;}
+  .proj-text{padding:42px 40px; background:var(--paper); display:flex; flex-direction:column; justify-content:center; gap:16px;}
+  .proj-text .eyebrow{color:var(--gold-deep);}
+  .proj-text h3{font-size:clamp(24px,3vw,32px);}
+  .proj-text p{font-size:15.5px; color:#3a2c22;}
+  @media (max-width:800px){ .proj-card, .proj-card.flip{grid-template-columns:1fr;} .proj-card.flip .proj-media{order:0;} .proj-media{min-height:220px;} }
+
+  /* ============ SIDE PROJECTS ============ */
+  #side{background:var(--cream-2);}
+  .side-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:56px;}
+  @media (max-width:900px){.side-grid{grid-template-columns:1fr;}}
+  .side-card{background:var(--paper); border:1.5px solid var(--line); border-radius:10px; overflow:hidden; display:flex; flex-direction:column;}
+  .side-card .thumb{aspect-ratio:4/3; overflow:hidden; background:#e9e1cf;}
+  .side-card .thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease;}
+  .side-card:hover .thumb img{transform:scale(1.06);}
+  .side-card .body{padding:22px 22px 26px;}
+  .side-card .status{font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:8px; display:block;}
+  .side-card h4{font-family:'Inter',sans-serif; text-transform:none; font-weight:800; font-size:17px; letter-spacing:0; margin-bottom:8px;}
+  .side-card p{font-size:14px; color:var(--taupe);}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--espresso); color:var(--paper); padding:130px 0 60px; text-align:center; position:relative; overflow:hidden;}
+  .thanks{
+    font-size:clamp(56px,11vw,150px); position:relative; display:inline-block;
+  }
+  .thanks .stamp{
+    display:block; font-family:'Inter',sans-serif; font-weight:800; letter-spacing:0.02em;
+    font-size:clamp(22px,4vw,44px); background:var(--gold); color:var(--espresso);
+    transform:rotate(-3deg); padding:8px 22px; margin-top:14px; display:inline-block;
+    text-transform:uppercase;
+  }
+  footer .sign{margin-top:70px; font-size:13px; letter-spacing:0.14em; text-transform:uppercase; color:#B5A996;}
+  footer .back-top{
+    margin-top:26px; display:inline-flex; align-items:center; gap:8px; font-size:12.5px;
+    font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold);
+    border:1px solid var(--gold); border-radius:100px; padding:10px 20px; cursor:pointer; background:none;
+  }
+  footer .back-top:hover{background:var(--gold); color:var(--espresso);}
+</style>
+</head>
+<body>
+
+<nav class="dotnav" id="dotnav">
+  <a href="#hero" data-label="Top"><span>Top</span></a>
+  <a href="#intro" data-label="Intro"><span>Intro</span></a>
+  <a href="#about" data-label="About"><span>About</span></a>
+  <a href="#education" data-label="Education"><span>Education</span></a>
+  <a href="#skills" data-label="Skills"><span>Skills</span></a>
+  <a href="#work" data-label="Work"><span>Work</span></a>
+  <a href="#projects" data-label="Projects"><span>Projects</span></a>
+  <a href="#side" data-label="Side Projects"><span>Side Projects</span></a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="hero">
+  <div class="wrap">
+    <div class="meta-row">
+      <span>Digital Marketing</span>
+      <span>2026</span>
+      <span>Taylor Herrick</span>
+    </div>
+    <div class="hero-stack">
+      <h1 class="hero-title">Creative</h1>
+      <div class="hero-script script">Portfolio</div>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-photo">
+        <img src="assets/headshot.jpg" alt="Taylor Herrick">
+        <div class="corner">↗</div>
+      </div>
+      <div class="hero-caption">
+        <p>“I enjoy creating engaging, informational content while adding my own creative perspective.”</p>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span> Scroll to explore <span class="line"></span></div>
+  </div>
+</header>
+
+<!-- ================= INTRODUCTION ================= -->
+<section id="intro">
+  <div class="wrap">
+    <div class="eyebrow reveal">01 — Say hello</div>
+    <h2 class="big-head reveal">Introduction
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 18L18 6M18 6H9M18 6v9"/></svg>
+    </h2>
+    <div class="section-grid">
+      <div class="body-copy reveal">
+        <p>Hello! My name is Taylor Herrick, and I have always had a passion for creating and editing content. This portfolio highlights a few of the projects and creations I am most proud of from my internship experiences, along with personal projects I pursued throughout college.</p>
+        <p>I enjoy creating engaging, informational content while adding my own creative perspective. I have always been drawn to the art of storytelling and finding unique ways to communicate ideas through content. My experiences have strengthened my interest in digital marketing, and I hope to pursue a career where I can combine creativity, strategy, and storytelling.</p>
+        <p style="margin-top:26px; color:var(--espresso); font-weight:600;">I am a hardworking and motivated individual who is always eager to learn, take on new challenges, and grow from the people and experiences around me. I look forward to continuing to develop my skills and making an impact in the digital marketing industry.</p>
+      </div>
+      <div class="frame-photo reveal">
+        <div class="frame-tab">Mizzou · Class of 2026</div>
+        <img src="assets/grad-stairs.jpg" alt="Taylor at graduation">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow reveal">02 — Get to know me</div>
+    <div class="section-grid">
+      <div class="frame-photo reveal">
+        <div class="frame-tab">Back-to-back national champions</div>
+        <img src="assets/cheer-trophy.jpg" alt="Taylor with Mizzou Cheerleading trophy">
+      </div>
+      <div class="reveal">
+        <span class="tag-badge">About Me</span>
+        <h2 class="name-line">Taylor Herrick</h2>
+        <div class="body-copy" style="margin-top:26px;">
+          <p>I grew up in Kansas City, where I developed a strong work ethic and learned early on how to balance academics with my passion for sports. I continued that balance at the University of Missouri, where I became a collegiate cheerleader while pursuing my degree.</p>
+          <p>As a member of the Mizzou Cheerleading team, I learned the importance of teamwork, discipline, time management, and commitment. I had the opportunity to serve as a captain, cheer at football games, travel to sporting events, and compete alongside an incredible team. One of my proudest accomplishments was being part of a team that won two back-to-back national championships.</p>
+          <p>Balancing the demands of being a student and collegiate athlete helped shape the collaborative, motivated, and positive individual I am today — lessons I carry into every internship and new opportunity I pursue.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>2×</b><span>National Champion</span></div>
+          <div class="stat"><b>2 yrs</b><span>Cheer Captain</span></div>
+          <div class="stat"><b>KC</b><span>Kansas City raised</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow reveal">03 — Where it started</div>
+    <div class="section-grid">
+      <div class="frame-photo reveal">
+        <img src="assets/grad-cap.jpg" alt="Mizzou graduation cap, class of 2026">
+      </div>
+      <div class="reveal">
+        <span class="tag-badge">The University of Missouri</span>
+        <h2 class="big-head">Education</h2>
+        <div class="body-copy" style="margin-top:24px;">
+          <p>I earned my Bachelor of Science in Business Administration from the University of Missouri, with an emphasis in Marketing, along with a certificate in Digital Marketing. Throughout my time at Mizzou, I focused on building a strong foundation in marketing, business strategy, and digital marketing while gaining hands-on experience that prepared me for a career in the industry.</p>
+        </div>
+        <div class="honors">
+          <div class="honor"><b>Dean's List</b><span>2022 &amp; 2026</span></div>
+          <div class="honor"><b>Martha Briegel Scholar</b><span>Academic distinction</span></div>
+          <div class="honor"><b>Spirit Squad Scholar</b><span>Athletics &amp; academics</span></div>
+          <div class="honor"><b>Cheer Captain</b><span>2 years of leadership</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS & CERTS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow reveal">04 — Tools of the trade</div>
+    <h2 class="big-head reveal">Skills &amp; Certs</h2>
+    <div class="badge-grid">
+      <div class="skill-badge reveal"><div class="mark">GA</div><div class="name">Google Analytics</div></div>
+      <div class="skill-badge reveal"><div class="mark">SL</div><div class="name">Slack</div></div>
+      <div class="skill-badge reveal"><div class="mark">QX</div><div class="name">Qualtrics</div></div>
+      <div class="skill-badge reveal"><div class="mark">CC</div><div class="name">CapCut</div></div>
+      <div class="skill-badge reveal"><div class="mark">CV</div><div class="name">Canva</div></div>
+      <div class="skill-badge reveal"><div class="mark">HS</div><div class="name">HubSpot</div></div>
+      <div class="skill-badge reveal"><div class="mark">MN</div><div class="name">monday.com</div></div>
+      <div class="skill-badge reveal"><div class="mark">AZ</div><div class="name">Amazon Seller</div></div>
+      <div class="skill-badge reveal"><div class="mark">CL</div><div class="name">Claude</div></div>
+      <div class="skill-badge reveal"><div class="mark">PS</div><div class="name">Photoshop</div></div>
+    </div>
+    <div class="cert-list">
+      <div class="cert-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15l-5.5 3 1-6-4.5-4 6-1L12 2l3 5 6 1-4.5 4 1 6z"/></svg>
+        <span>Google Analytics Certified</span>
+      </div>
+      <div class="cert-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15l-5.5 3 1-6-4.5-4 6-1L12 2l3 5 6 1-4.5 4 1 6z"/></svg>
+        <span>Digital Marketing Certified, University of Missouri</span>
+      </div>
+      <div class="cert-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 15l-5.5 3 1-6-4.5-4 6-1L12 2l3 5 6 1-4.5 4 1 6z"/></svg>
+        <span>Social Media Marketing, HubSpot</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK EXPERIENCE ================= -->
+<section id="work">
+  <div class="wrap">
+    <div class="eyebrow reveal">05 — On the job</div>
+    <h2 class="big-head reveal">Work Experience</h2>
+
+    <div class="job reveal">
+      <div><div class="when">2024</div><div class="org">Negro Leagues<br>Baseball Museum</div></div>
+      <div>
+        <h3>Marketing Intern</h3>
+        <ul>
+          <li>Created and edited written and visual content for social media posts, keeping a consistent posting schedule.</li>
+          <li>Designed and edited brochures and flyers to promote upcoming events and exhibits.</li>
+          <li>Helped plan and run 5+ museum events, including Coffee of Champions, to boost visitor engagement.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div><div class="when">2025–26</div><div class="org">EquipmentShare</div></div>
+      <div>
+        <h3>Safety Management Intern</h3>
+        <ul>
+          <li>Helped build and roll out safety policies, procedures, and training programs.</li>
+          <li>Kept safety documentation up to date, including running weekly safety meetings and hosting 5 new-hire orientations.</li>
+          <li>Worked cross-functionally with the safety team and other departments to roll out training programs and safety communications.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job reveal">
+      <div><div class="when">2026</div><div class="org">EquipmentShare</div></div>
+      <div>
+        <h3>eCommerce Marketing Intern</h3>
+        <ul>
+          <li>Listed 425 products on Amazon, beating my summer goal of 300, and helped generate over $4,000 in revenue.</li>
+          <li>Filled out and helped execute email and SMS marketing campaigns from start to finish, including setup, targeting, and scheduling.</li>
+          <li>Built dashboards to track campaign and sales metrics and used the data to understand what was and wasn't working.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECT PORTFOLIO ================= -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow reveal">06 — Selected work</div>
+    <h2 class="big-head reveal">Project Portfolio</h2>
+
+    <div class="proj-card reveal">
+      <div class="proj-media split">
+        <img src="assets/safety-newsletter.png" alt="EquipmentShare safety newsletter design">
+        <img src="assets/safety-newsletter2.png" alt="EquipmentShare safety newsletter with charts">
+      </div>
+      <div class="proj-text">
+        <span class="eyebrow">EquipmentShare · Safety Position</span>
+        <h3>Weekly safety communications</h3>
+        <p>At EquipmentShare, I was responsible for creating and organizing weekly safety meetings, developing content that kept employees informed, engaged, and compliant with safety standards. This role sharpened my ability to communicate clearly, create consistent content on a recurring schedule, and tailor messaging for a specific audience.</p>
+      </div>
+    </div>
+
+    <div class="proj-card flip reveal">
+      <div class="proj-media">
+        <img src="assets/sku-dashboard.png" alt="Amazon SKU sales dashboard">
+      </div>
+      <div class="proj-text">
+        <span class="eyebrow">EquipmentShare · eCommerce Marketing Intern</span>
+        <h3>425 SKUs, one Amazon storefront</h3>
+        <p>I had the opportunity to post products on Amazon and track data insights to see how listings were performing — similar to social media. During my internships I created content and built dashboards to track performance, learning to understand both sides: making the content, and then looking at whether it's actually working.</p>
+        <p style="font-weight:700; color:var(--espresso);">425 SKUs listed · $4,347.58 revenue · 1,153 sessions</p>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-media">
+        <img src="assets/nlbm-poster.png" alt="Negro Leagues Baseball Museum exhibit poster">
+      </div>
+      <div class="proj-text">
+        <span class="eyebrow">Negro Leagues Baseball Museum</span>
+        <h3>Telling the story of the Kansas City Monarchs</h3>
+        <p>Designed exhibit posters, social content, and event materials for the museum, including work supporting "The Kings of KC" exhibit chronicling the history of the Kansas City Monarchs — combining archival storytelling with modern content design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIDE PROJECTS ================= -->
+<section id="side">
+  <div class="wrap">
+    <div class="eyebrow reveal">07 — On my own time</div>
+    <h2 class="big-head reveal">Side Projects</h2>
+    <div class="side-grid">
+      <div class="side-card reveal">
+        <div class="thumb"><img src="assets/case-study.png" alt="Multi-client social media strategy case study"></div>
+        <div class="body">
+          <span class="status">Job application case study</span>
+          <h4>Multi-client social media strategy</h4>
+          <p>Built a weekly content calendar for three client types — med spa, restaurant, and eCommerce — plus a matching Instagram post concept for an eCommerce pickleball brand.</p>
+        </div>
+      </div>
+      <div class="side-card reveal">
+        <div class="thumb"><img src="assets/cedar-creek1.png" alt="Cedar Creek Therapeutic Riding Center volunteer graphic"></div>
+        <div class="body">
+          <span class="status">BA3500 class volunteer project</span>
+          <h4>Cedar Creek Therapeutic Riding Center</h4>
+          <p>Volunteered at Cedar Creek and designed a social media graphic and monthly content calendar to promote trail rides and encourage bookings.</p>
+        </div>
+      </div>
+      <div class="side-card reveal">
+        <div class="thumb"><img src="assets/cheer-flyers.png" alt="Mizzou Cheerleading recruiting flyers"></div>
+        <div class="body">
+          <span class="status">Print &amp; digital design</span>
+          <h4>Mizzou Cheerleading recruiting flyers</h4>
+          <p>Designed two recruiting flyers — a general program overview and a targeted push for male athletes — keeping team photography and branding consistent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="thanks reveal">
+      Thank You
+      <span class="stamp">So Much</span>
+    </div>
+    <div class="sign reveal">Taylor Herrick · Digital Marketing · 2026</div>
+    <button class="back-top" onclick="document.getElementById('hero').scrollIntoView({behavior:'smooth'})">Back to top ↑</button>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll (with safe fallback if IntersectionObserver is unavailable)
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.12});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  // active dot nav
+  const sections = ['hero','intro','about','education','skills','work','projects','side'].map(id=>document.getElementById(id));
+  const dots = document.querySelectorAll('.dotnav a');
+  const navIO = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        dots.forEach(d=>d.classList.toggle('active', d.getAttribute('href')==='#'+id));
+      }
+    });
+  },{threshold:0.5, rootMargin:'-10% 0px -60% 0px'});
+  sections.forEach(s=>{ if(s) navIO.observe(s); });
+</script>
+</body>
+</html>
